@@ -17,8 +17,8 @@
 */
 
 /* _____________ 你的代码 _____________ */
-
-type Concat<T, U> = any
+type Tuple = readonly unknown[]
+type Concat<T extends Tuple, U extends Tuple> = [...T, ...U]
 
 /* _____________ 测试用例 _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
