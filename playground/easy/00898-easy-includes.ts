@@ -17,8 +17,14 @@
 */
 
 /* _____________ 你的代码 _____________ */
+type IsExact<A, B> =
+  A extends B
+    ? B extends A
+      ? true
+      : false
+    : false
 
-type Includes<T extends readonly any[], U> = any
+type Includes<T extends readonly any[], U> = U extends Record<string, any> ? false : IsExact<U, T[number]>
 
 /* _____________ 测试用例 _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
